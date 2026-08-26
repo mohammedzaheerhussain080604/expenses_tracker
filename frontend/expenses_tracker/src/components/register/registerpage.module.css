@@ -1,0 +1,185 @@
+body {
+  font-family: "Inter", sans-serif;
+}
+
+
+
+
+.cont{
+
+    background-color: rgb(255, 249, 249);
+   
+    height: 75vh;
+    width: 50%;
+    margin-left: 350px;
+    margin-top: 100px;
+    border: 1px solid rgb(244, 232, 232);
+    box-shadow: 10px 10px 20px 3px rgb(131, 140, 131);
+
+
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+
+.image_cont{
+
+    background-color: rgb(251, 249, 249);
+}
+
+.image_cont img{
+
+    width: 300px;
+    height: 300px;
+    margin-left: 30px;
+    
+}
+
+.image_text{
+
+   
+    text-align: center;
+    
+
+}
+
+.image_text h3{
+
+    width: 300px;
+    margin-left: 50px;
+    color: 
+    rgb(153, 153, 147);
+}
+
+
+/* ------------ right content ---------- */
+
+.right_content{
+
+    background-color: rgb(254, 255, 255);
+    width: 500px;
+    height: 650px;
+    box-shadow: 10px 10px 20px 3px rgb(212, 215, 212);
+
+    border: 1px solid rgb(232, 226, 226);
+    border-radius: 10px;
+    margin: 30px;
+
+}
+
+
+.right_head{
+
+    padding-left: 30px;
+    padding-top: 30px;
+
+    
+}
+
+.right_head h2{
+
+    font-size: 30px;
+    line-height: 15px;
+}
+
+.right_head h3{
+
+    font-size: 18px;
+    color: rgb(176, 179, 182);
+    line-height: 0.5px;
+   
+}
+
+.input_field{
+
+    margin-left: 30px;
+    margin-top: 60px;
+    cursor: pointer;
+}
+
+.input_field label{
+
+    font-size: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+    padding-bottom: 30px;
+    cursor: pointer;
+}
+
+.input_field input{
+
+    width: 400px;
+    height: 45px;
+    border: 1px solid rgb(231, 226, 226);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgb(210, 219, 210);
+    padding-left: 10px;
+    font-size: 18px;
+    color: rgb(94, 89, 89);
+}
+
+.eyebutton{
+
+    margin-left: -50px;
+    border: none;
+    background-color: rgb(254, 255, 255);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.forgot_password_text{
+
+    padding-left: 300px;
+    font-size: 15px;
+    color: rgb(111, 111, 115);
+    font-weight: 600;
+}
+
+.forgot_password_text:hover{
+
+    color:rgb(46, 22, 101)
+}
+
+.login_btn{
+
+    width: 420px;
+    height: 45px;
+    background-color: blue;
+    border: 1px solid rgb(108, 60, 222);
+    border-radius: 8px;
+    color: aliceblue;
+    font-weight: 700;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgb(108, 111, 108);
+    
+    cursor: pointer;
+}
+
+.login_btn:hover{
+
+    background-color: green;
+    border: 1px solid rgb(38, 136, 23);
+    color: rgb(255, 255, 255);
+}
+
+.register_text{
+
+    text-align: center;
+    margin-top: 30px;
+    color: rgb(144, 144, 149);
+}
+
+.register_text span{
+
+    color: blue;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+a{
+
+    text-decoration: none;
+}

@@ -1,37 +1,31 @@
-import styles from "./loginpage.module.css"
-import login_image from "../../assets/loginpage/login_page_image.png"
-import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
+import styles from "./registerpage.module.css"
+import register_image from "../../assets/loginpage/register_page_image.png"
 import { useState } from "react";
-import {Link} from "react-router-dom"
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
+import {Link} from "react-router-dom";
 
 
-export default function LoginPage(){
+export default function RegisterPage(){
 
-    const [showPassword,setshowpassword]= useState(false);
-
+    const [showPassword,setshowpassword]=useState(false)
+    
     return (
-
 
         <>
 
-
-        <div className={styles.cont}>
+      <div className={styles.cont}>
 
 
               {/* ----------- left image section --------- */}
             <div className={styles.image_cont}>
 
-                <img src={login_image} alt="expenses_tracker_image" />
+                <img src={register_image} alt="expenses_tracker_image" />
 
                    {/* ----------- image text ------------------- */}
                 <div className={styles.image_text}>
                     <h2>Track Your Expenses</h2>
                     <h3>Manage your daily expenses and save your money </h3>
                 </div>
-
-
-
-
 
             </div>
 
@@ -45,8 +39,8 @@ export default function LoginPage(){
                     {/* ----------- right head -------------- */}
                 <div className={styles.right_head}>
 
-                    <h2>Welcome Back</h2>
-                    <h3>Login in to your Account</h3>
+                    <h2>Create an Account</h2>
+                    <h3>Create your account to get started</h3>
                     
                 </div>
 
@@ -55,6 +49,14 @@ export default function LoginPage(){
                 <div className={styles.input_field}>
 
                     <form action="">
+
+
+                             <div className={styles.form_email}>
+                                <label htmlFor="name">Name</label><br/>
+                                <input type="name" id="name" autoComplete="name"/>
+                            </div>
+
+                             <br/>
 
                         
                             <div className={styles.form_email}>
@@ -70,37 +72,38 @@ export default function LoginPage(){
                                 <button type="button" onClick={()=>setshowpassword(!showPassword)} className={styles.eyebutton}>{showPassword ? <IoEyeOffOutline/>:<IoEyeOutline/> } </button>
                             </div>
 
-                            <p className={styles.forgot_password_text}>forgot password</p>
+                            <br/>
 
+                            <div className={styles.form_password}>
+
+                                <label htmlFor="repassword">Confirm Password</label><br/>
+                                <input type={showPassword ? "text": "password"} id="repassword" autoComplete="repassword"/>
+                                <button type="button" onClick={()=>setshowpassword(!showPassword)} className={styles.eyebutton}>{showPassword ? <IoEyeOffOutline/>:<IoEyeOutline/> } </button>
+                            </div>
+
+
+
+
+                            <br/>
                             <br/>
 
 
-                            <button type="submit" className={styles.login_btn}>Login</button>
+                            <button type="submit" className={styles.login_btn}>Register</button>
 
-                            <p className={styles.register_text}>Don`t have an account? <span> <Link to="/register">Register</Link></span> </p>
+                            <p className={styles.register_text}>Already have an account? <span> <Link to="/">Login</Link></span> </p>
                        
 
-
-
                     </form>
-
-
                 </div>
 
-
             </div>
-
-
-
-            
-
-
 
         </div>
         
         
         
         </>
+
 
 
 
