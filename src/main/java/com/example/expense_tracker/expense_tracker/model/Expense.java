@@ -3,10 +3,7 @@ import java.time.LocalDateTime;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -36,9 +33,16 @@ public class Expense {
     @NotBlank(message = "enter the description ")
     private String description;
 
-    @NotNull(message = "enter the date ")
 
+    @NotNull(message = "enter the date ")
     @JsonFormat(pattern = "dd-MM-yyyy hh:mm:ss a")
     private LocalDateTime datetime;
+
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+
 
 }

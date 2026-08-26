@@ -2,12 +2,74 @@ import styles from "./registerpage.module.css"
 import register_image from "../../assets/loginpage/register_page_image.png"
 import { useState } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-import {Link} from "react-router-dom";
+import {Link,useNavigate} from "react-router-dom";
 
 
 export default function RegisterPage(){
 
-    const [showPassword,setshowpassword]=useState(false)
+    const [showPassword,setshowpassword]=useState(false);
+
+    const [message,setmessage]=useState("");
+    const [error,seterror]=useState("");
+
+    const navigate = useNavigate();
+
+    const [name,setname]=useState("");
+    const [email,setemail]=useState("");
+    const [password,setpassword]=useState("");
+    const [repassword,setrepassword]=useState("");
+
+    const handleregister = async (event) => {
+        event.preventDefault();
+
+        // Clear old messages
+        setmessage("");
+        seterror("");
+
+        if (password === repassword) {
+
+            try {
+
+                const response = await fetch(
+                    "http://localhost:8080/user/register",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            email: email,
+                            password: password
+                        })
+                    }
+                );
+
+                const data = await response.text();
+
+                if(response.ok){
+                    setmessage(data || "User created");
+                    alert("User Created Successfully");
+                    navigate("/");
+                }else{
+                    seterror(data|| "Register failed");
+                }
+
+                console.log(data);
+
+            } catch (error) {
+
+                seterror("Unable to connect to server");
+                console.log(error);
+
+            }
+
+        } else {
+            seterror("Password you entered does not match");
+        }
+    };
+
+
     
     return (
 
@@ -48,12 +110,12 @@ export default function RegisterPage(){
 
                 <div className={styles.input_field}>
 
-                    <form action="">
+                    <form onSubmit={handleregister}>
 
 
                              <div className={styles.form_email}>
                                 <label htmlFor="name">Name</label><br/>
-                                <input type="name" id="name" autoComplete="name"/>
+                                <input type="name" id="name" autoComplete="name" onChange={(e)=>{ setname(e.target.value)}}/>
                             </div>
 
                              <br/>
@@ -61,14 +123,14 @@ export default function RegisterPage(){
                         
                             <div className={styles.form_email}>
                                 <label htmlFor="email">Email</label><br/>
-                                <input type="email" id="email" autoComplete="email"/>
+                                <input type="email" id="email" autoComplete="email" onChange={(e)=>{ setemail(e.target.value)}} />
                             </div>
 
                                <br/>
                             <div className={styles.form_password}>
 
                                 <label htmlFor="password">Password</label><br/>
-                                <input type={showPassword ? "text": "password"} id="password" autoComplete="password"/>
+                                <input type={showPassword ? "text": "password"} id="password" autoComplete="password" onChange={(e)=>{ setpassword(e.target.value)}} />
                                 <button type="button" onClick={()=>setshowpassword(!showPassword)} className={styles.eyebutton}>{showPassword ? <IoEyeOffOutline/>:<IoEyeOutline/> } </button>
                             </div>
 
@@ -77,7 +139,7 @@ export default function RegisterPage(){
                             <div className={styles.form_password}>
 
                                 <label htmlFor="repassword">Confirm Password</label><br/>
-                                <input type={showPassword ? "text": "password"} id="repassword" autoComplete="repassword"/>
+                                <input type={showPassword ? "text": "password"} id="repassword" autoComplete="repassword" onChange={(e)=>{ setrepassword(e.target.value)}} />
                                 <button type="button" onClick={()=>setshowpassword(!showPassword)} className={styles.eyebutton}>{showPassword ? <IoEyeOffOutline/>:<IoEyeOutline/> } </button>
                             </div>
 
@@ -87,6 +149,17 @@ export default function RegisterPage(){
                             <br/>
                             <br/>
 
+                            {error && (
+                                <p className={styles.error_message}>
+                                    {error}
+                                </p>
+                            )}
+
+                            {message && (
+                                <p className={styles.success_message}>
+                                    {message}
+                                </p>
+                            )}
 
                             <button type="submit" className={styles.login_btn}>Register</button>
 

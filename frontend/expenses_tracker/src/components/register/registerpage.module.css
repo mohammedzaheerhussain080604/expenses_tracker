@@ -9,7 +9,7 @@ body {
 
     background-color: rgb(255, 249, 249);
    
-    height: 75vh;
+    height: 85vh;
     width: 50%;
     margin-left: 350px;
     margin-top: 100px;
@@ -62,7 +62,7 @@ body {
 
     background-color: rgb(254, 255, 255);
     width: 500px;
-    height: 650px;
+    height: 700px;
     box-shadow: 10px 10px 20px 3px rgb(212, 215, 212);
 
     border: 1px solid rgb(232, 226, 226);
@@ -182,4 +182,15 @@ body {
 a{
 
     text-decoration: none;
+}
+
+
+.error_message {
+    color: red;
+    margin: 10px 0;
+}
+
+.success_message {
+    color: green;
+    margin: 10px 0;
 }

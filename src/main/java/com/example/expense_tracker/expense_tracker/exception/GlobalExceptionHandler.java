@@ -1,5 +1,6 @@
 package com.example.expense_tracker.expense_tracker.exception;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -15,19 +16,57 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ExpenseNotFoundException.class)
     public ResponseEntity<String> handleException(
             ExpenseNotFoundException ex
-    ){
-
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    ) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(ex.getMessage());
     }
 
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String ,String>> handlerror(MethodArgumentNotValidException ex){
+    public ResponseEntity<Map<String, String>> handlerror(
+            MethodArgumentNotValidException ex
+    ) {
+
+        Map<String, String> errors = new HashMap<>();
+
+        ex.getBindingResult()
+                .getFieldErrors()
+                .forEach(error ->
+                        errors.put(
+                                error.getField(),
+                                error.getDefaultMessage()
+                        )
+                );
+
+        return ResponseEntity
+                .badRequest()
+                .body(errors);
+    }
 
 
-        Map<String,String> errors = new HashMap<>();
-        ex.getBindingResult().getFieldErrors().forEach(error->errors.put(error.getField(),error.getDefaultMessage()));
 
-        return ResponseEntity.badRequest().body(errors);
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<Map<String, String>> handleDataIntegrityViolation(
+            DataIntegrityViolationException ex
+    ) {
+
+        Map<String, String> error = new HashMap<>();
+
+        error.put("status", "409");
+        error.put("message", "Email already exists");
+
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(error);
+    }
+
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<String> handleusernotfound(UserNotFoundException un){
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(un.getMessage());
+
+
     }
 }

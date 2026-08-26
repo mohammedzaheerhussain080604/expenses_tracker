@@ -1,7 +1,7 @@
-package com.example.expense_tracker.expense_tracker.model;
+package com.example.expense_tracker.expense_tracker.dto;
 
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -9,22 +9,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
-
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+@NoArgsConstructor
 
 
-    @NotBlank(message="Enter the name")
-    @Size(min=2,max=30,message = "enter the name between 2 to 30 characters")
-    private String name;
+public class LoginDTO {
+
 
 
     @NotBlank(message="Enter the email")
@@ -35,9 +26,7 @@ public class User {
 
 
     @NotBlank(message="Enter the password")
-    @Column(nullable = false, length = 255)
+    @Size(min = 8,max=16,message = "Password must be 8-16 characters")
     private String password;
-
-
 
 }
