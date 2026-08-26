@@ -2,12 +2,16 @@ package com.example.expense_tracker.expense_tracker.service;
 
 
 import com.example.expense_tracker.expense_tracker.dto.ExpenseDTO;
+import com.example.expense_tracker.expense_tracker.dto.Expensesummary;
 import com.example.expense_tracker.expense_tracker.exception.ExpenseNotFoundException;
 import com.example.expense_tracker.expense_tracker.model.Expense;
 import com.example.expense_tracker.expense_tracker.repository.ExpenseRepo;
-import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,193 +26,117 @@ public class ExpenseService {
     }
 
 
-    public List<ExpenseDTO> getallexpenses() {
+
+//    --------------- get request -----------
 
 
-        List<Expense> expenses=expenseRepo.findAll();
+//        --------------- get all expenses ------------
+public Page<ExpenseDTO> getallexpenses(Pageable pageable) {
 
-        List<ExpenseDTO> results = new ArrayList<>();
+    Page<Expense> expenses = expenseRepo.findAll(pageable);
 
-        for(Expense ex:expenses){
+    return expenses.map(ex -> {
+
+        ExpenseDTO dto = new ExpenseDTO();
+
+        dto.setCategory(ex.getCategory());
+        dto.setAmount(ex.getAmount());
+        dto.setDescription(ex.getDescription());
+        dto.setDatetime(ex.getDatetime());
+
+        return dto;
+    });
+}
+
+
+    //    --------------- get by id -----------------
+
+    public ExpenseDTO getexpensesbyId(int id) {
+
+        Expense expenses= expenseRepo.findById(id).orElseThrow(()->new ExpenseNotFoundException());
+
+        ExpenseDTO dto = new ExpenseDTO();
+
+        dto.setCategory(expenses.getCategory());
+        dto.setDescription(expenses.getDescription());
+        dto.setAmount(expenses.getAmount());
+        dto.setDatetime(expenses.getDatetime());
+
+        return dto;
+    }
+
+    //    ---------------- search by category amount description -----------------
+
+    public Page<ExpenseDTO> searchall(String query, Pageable pageable) {
+
+        Page<Expense> expenses =
+                expenseRepo.searchExpenses(query,pageable);
+
+        return expenses.map(ex -> {
 
             ExpenseDTO dto = new ExpenseDTO();
 
             dto.setCategory(ex.getCategory());
-            dto.setAmount(ex.getAmount());
             dto.setDescription(ex.getDescription());
+            dto.setAmount(ex.getAmount());
             dto.setDatetime(ex.getDatetime());
 
-            results.add(dto);
-        }
-
-        return results;
+            return dto;
+        });
     }
 
-    public List<ExpenseDTO> getexpensesbyId(int id) {
+    //    --------------------------- post the expenses -----------------------------------
+    public void postexpenses( Expense ex) {
 
-        List<Expense> expenses=expenseRepo.findById(id).orElse(
-                new ExpenseNotFoundException()
-        );
+        ex.setDatetime(LocalDateTime.now(ZoneId.of("Asia/Kolkata")));
 
-        List<ExpenseDTO> results = new ArrayList<>();
-
-        for(Expense ex:expenses){
-
-            ExpenseDTO dto = new ExpenseDTO();
-
-            dto.setCategory(ex.getCategory());
-            dto.setAmount(ex.getAmount());
-            dto.setDescription(ex.getDescription());
-            dto.setDatetime(ex.getDatetime());
-
-            results.add(dto);
-        }
-
-        return results;
+        expenseRepo.save(ex);
     }
 
+    //    --------------------- update the expenses ---------------------------------------------
+
+    public void updateexpenses(int id,Expense ex) {
+
+        Expense expense = expenseRepo.findById(id).orElseThrow(()->new ExpenseNotFoundException());
+
+        expense.setCategory(ex.getCategory());
+        expense.setAmount(ex.getAmount());
+        expense.setDescription(ex.getDescription());
+        expense.setDatetime(LocalDateTime.now(ZoneId.of("Asia/Kolkata")));
+
+        expenseRepo.save(expense);
 
 
     }
 
+    //    ------------------------ delete the expenses ---------------------------------------
 
-//    private final ExpenseRepo expenseRepo;
-//
-//    public ExpenseService(ExpenseRepo expenseRepo) {
-//        this.expenseRepo = expenseRepo;
-//    }
-//
-//
-//    // ==================== GET ALL EXPENSES ====================
-//    // Used by Home Page when loading all expenses.
-//    // Example: GET /expenses
-//    public List<ExpenseDTO> getAllExpense() {
-//
-//        List<Expense> expenses = expenseRepo.findAll();
-//
-//        List<ExpenseDTO> results = new ArrayList<>();
-//
-//        for (Expense ex : expenses) {
-//
-//            ExpenseDTO dto = new ExpenseDTO();
-//
-//            dto.setCategory(ex.getCategory());
-//            dto.setAmount(ex.getAmount());
-//            dto.setPayment_method(ex.getPayment_method());
-//            dto.setDescription(ex.getDescription());
-//            dto.setDatetime(ex.getDatetime());
-//
-//            results.add(dto);
-//        }
-//
-//        return results;
-//    }
-//
-//
-//    // ==================== ADD EXPENSE ====================
-//    // Used when the user presses Save on the Add Expense page.
-//    // Example: POST /expenses
-//    public void postmyexpenses(ExpenseDTO expenseDTO) {
-//
-//        Expense ex = new Expense();
-//
-//        ex.setCategory(expenseDTO.getCategory());
-//        ex.setAmount(expenseDTO.getAmount());
-//        ex.setPayment_method(expenseDTO.getPayment_method());
-//        ex.setDescription(expenseDTO.getDescription());
-//        ex.setDatetime(expenseDTO.getDatetime());
-//
-//        expenseRepo.save(ex);
-//    }
-//
-//
-//    // ==================== DELETE ONE EXPENSE ====================
-//    // Used when the user deletes a particular expense.
-//    // Example: DELETE /expenses/{id}
-//    public void deletemyexpenses(int id) {
-//
-//        expenseRepo.deleteById(id);
-//    }
-//
-//
-//    // ==================== SEARCH EXPENSES ====================
-//    // Used by the Home Page search bar.
-//    // Searches category, amount, payment method, description and date.
-//    // Example: GET /expenses/search?query=food
-//    public List<ExpenseDTO> searchExpenses(String query) {
-//
-//        List<Expense> expenses = expenseRepo.searchExpenses(query);
-//
-//        List<ExpenseDTO> results = new ArrayList<>();
-//
-//        for (Expense ex : expenses) {
-//
-//            ExpenseDTO dto = new ExpenseDTO();
-//
-//            dto.setCategory(ex.getCategory());
-//            dto.setAmount(ex.getAmount());
-//            dto.setPayment_method(ex.getPayment_method());
-//            dto.setDescription(ex.getDescription());
-//            dto.setDatetime(ex.getDatetime());
-//
-//            results.add(dto);
-//        }
-//
-//        return results;
-//    }
-//
-//
-//    // ==================== UPDATE EXPENSE ====================
-//    // Used when editing an existing expense.
-//    // Example: PUT /expenses/{id}
-//    public void updateexpenses(int id, ExpenseDTO expenseDTO) {
-//
-//        Expense ex = expenseRepo.findById(id)
-//                .orElseThrow(() ->
-//                        new ExpenseNotFoundException(
-//                                "Expense not found with id: " + id
-//                        )
-//                );
-//
-//        ex.setCategory(expenseDTO.getCategory());
-//        ex.setAmount(expenseDTO.getAmount());
-//        ex.setPayment_method(expenseDTO.getPayment_method());
-//        ex.setDescription(expenseDTO.getDescription());
-//        ex.setDatetime(expenseDTO.getDatetime());
-//
-//        expenseRepo.save(ex);
-//    }
-//
-//
-//    // ==================== GET ONE EXPENSE ====================
-//    // Used when you need the details of one expense by ID.
-//    // Example: GET /expenses/{id}
-//    public ExpenseDTO getexpensebyid(int id) {
-//
-//        Expense ex = expenseRepo.findById(id)
-//                .orElseThrow(() ->
-//                        new ExpenseNotFoundException(
-//                                "Expense not found with id: " + id
-//                        )
-//                );
-//
-//        ExpenseDTO dto = new ExpenseDTO();
-//
-//        dto.setCategory(ex.getCategory());
-//        dto.setAmount(ex.getAmount());
-//        dto.setPayment_method(ex.getPayment_method());
-//        dto.setDescription(ex.getDescription());
-//        dto.setDatetime(ex.getDatetime());
-//
-//        return dto;
-//    }
-//
-//
-//    // ==================== DELETE ALL EXPENSES ====================
-//    // Used only if you have a "Delete All" feature.
-//    // Example: DELETE /expenses
-//    public void deleteall() {
-//
-//        expenseRepo.deleteAll();
-//    }
+
+    public void deleteexpenses() {
+
+        expenseRepo.deleteAll();
+
+    }
+
+
+    //    ------------------------ delete the expenses by id ---------------------------------------
+
+
+    public void deleteById(int id) {
+
+        expenseRepo.deleteById(id);
+    }
+
+
+
+    //    ----------------------------- summary ------------------------------------------------------
+
+
+    public List<Expensesummary> summary(String year, String month) {
+
+        return expenseRepo.findByYearAndMonth(Integer.parseInt(year),Integer.parseInt(month));
+
+
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.example.expense_tracker.expense_tracker.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -22,6 +23,8 @@ public class ExpenseDTO {
     private String description;
 
     @NotNull(message = "enter the date ")
+
+    @JsonFormat(pattern = "dd-MM-yyyy hh:mm:ss a")
     private LocalDateTime datetime;
 
 

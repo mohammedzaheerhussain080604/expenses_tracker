@@ -1,8 +1,11 @@
 package com.example.expense_tracker.expense_tracker.controller;
 
 import com.example.expense_tracker.expense_tracker.dto.ExpenseDTO;
+import com.example.expense_tracker.expense_tracker.dto.Expensesummary;
+import com.example.expense_tracker.expense_tracker.model.Expense;
 import com.example.expense_tracker.expense_tracker.service.ExpenseService;
-import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,12 +27,12 @@ public class ExpenseController {
 //    --------------- get request -----------
 
 
-//        --------------- get all expensese ------------
+//        --------------- get all expenses ------------
 
     @GetMapping
-    public ResponseEntity<List<ExpenseDTO>> getallexpenses(){
+    public ResponseEntity<Page<ExpenseDTO>> getallexpenses(Pageable pageable){
 
-        List<ExpenseDTO> ex =expenseService.getallexpenses();
+        Page<ExpenseDTO> ex =expenseService.getallexpenses(pageable);
 
         return ResponseEntity.ok(ex);
 
@@ -39,12 +42,91 @@ public class ExpenseController {
 //    --------------- get by id -----------------
 
     @GetMapping("/{id}")
-    public ResponseEntity<List<ExpenseDTO>> getexpensesbyId(@PathVariable("id") int id){
+    public ResponseEntity<ExpenseDTO> getexpensesbyId(@PathVariable("id") int id){
 
-        List<ExpenseDTO> ex = expenseService.getexpensesbyId(id);
+        ExpenseDTO ex = expenseService.getexpensesbyId(id);
 
         return ResponseEntity.ok(ex);
     }
+
+
+//    ---------------- search by category amount description -----------------
+
+    @GetMapping("/search")
+    public ResponseEntity<Page<ExpenseDTO>>  serachbyall( @RequestParam String query,Pageable pageable){
+
+        Page<ExpenseDTO> ex= expenseService.searchall(query,pageable);
+
+        return ResponseEntity.ok(ex);
+
+
+
+    }
+
+
+
+//    --------------------------- post the expenses -----------------------------------
+
+    @PostMapping("/post")
+    public ResponseEntity<String> postexpense(@RequestBody Expense ex){
+
+        expenseService.postexpenses(ex);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body("Successfully created");
+    }
+
+
+//    --------------------- update the expenses ---------------------------------------------
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<String> updateexpense(@PathVariable("id") int id,@RequestBody Expense ex){
+
+        expenseService.updateexpenses(id,ex);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body("successfully updated");
+    }
+
+
+
+//    ------------------------ delete the expenses ---------------------------------------
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deleteexpense(){
+
+        expenseService.deleteexpenses();
+
+        return ResponseEntity.ok("successfully deleted");
+
+
+    }
+
+
+    //    ------------------------ delete the expenses by id ---------------------------------------
+
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteById(@PathVariable("id") int id){
+
+        expenseService.deleteById(id);
+
+        return ResponseEntity.ok("successfully deleted");
+    }
+
+
+//    ----------------------------- summary ------------------------------------------------------
+
+    @GetMapping("/summary")
+    public ResponseEntity<List<Expensesummary>> summary(@RequestParam String year, @RequestParam String month){
+
+        List<Expensesummary> expenses= expenseService.summary(year,month);
+
+        return ResponseEntity.ok(expenses);
+
+
+
+
+    }
+
 
 
 }

@@ -2,7 +2,7 @@ package com.example.expense_tracker.expense_tracker.model;
 import java.time.LocalDateTime;
 
 
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,7 +22,7 @@ public class Expense {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
 
     @NotBlank(message = "enter the category ")
@@ -37,6 +37,8 @@ public class Expense {
     private String description;
 
     @NotNull(message = "enter the date ")
+
+    @JsonFormat(pattern = "dd-MM-yyyy hh:mm:ss a")
     private LocalDateTime datetime;
 
 }
