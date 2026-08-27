@@ -1,11 +1,15 @@
-
+import Navbar from "../../components/Navbar/Navbar.jsx"
 
 
 export default function Dashboard(){
 
     return(
 
-        <h2>Dashboard</h2>
+    <div>
+
+         <Navbar/>
+
+    </div>
 
 
     );

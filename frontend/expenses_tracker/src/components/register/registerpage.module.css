@@ -194,3 +194,206 @@ a{
     color: green;
     margin: 10px 0;
 }
+
+
+
+/* =========================
+   MOBILE VIEW
+   ========================= */
+
+@media (max-width: 768px) {
+
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .cont {
+        width: 100%;
+        min-height: 100vh;
+        height: auto;
+
+        margin: 0;
+        padding: 20px;
+
+        box-sizing: border-box;
+
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    /* Hide image on mobile */
+
+    
+.image_cont{
+
+    background-color: rgb(251, 249, 249);
+}
+
+.image_cont img{
+
+    width: 200px;
+    height: 200px;
+    margin-left: 55px;
+    
+}
+
+.image_text{
+  
+    text-align: center;
+    margin-top: -20px;
+    
+}
+
+.image_text h2{
+
+    font-size: 18px;
+}
+
+.image_text h3{
+
+    width: 230px;
+    margin-right: 36px;
+    text-align: center;
+    font-size: 13px;
+    color: 
+    rgb(153, 153, 147);
+}
+
+
+
+    /* Login box */
+
+    .right_content {
+        width: 100%;
+        max-width: 450px;
+
+        height: auto;
+        min-height: auto;
+
+        margin: 0;
+        padding: 20px;
+
+        box-sizing: border-box;
+
+        border-radius: 10px;
+
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    }
+
+
+    /* Heading */
+
+    .right_head {
+        padding: 5px 0 0 0;
+    }
+
+    .right_head h2 {
+        font-size: 28px;
+        line-height: 1.2;
+        margin: 0 0 10px 0;
+        text-align: center;
+    }
+
+    .right_head h3 {
+        font-size: 16px;
+        line-height: 1.4;
+        margin: 0;
+        text-align: center;
+    }
+
+
+    /* Form */
+
+    .input_field {
+        margin: 40px 0 0 0;
+    }
+
+
+    /* Labels */
+
+    .input_field label {
+        font-size: 17px;
+        margin-bottom: 8px;
+    }
+
+
+    /* Inputs */
+
+    .input_field input {
+        width: 100%;
+        height: 45px;
+
+        box-sizing: border-box;
+
+        font-size: 16px;
+    }
+
+
+    .form_password{
+
+        position:relative;
+    }
+    /* Eye button */
+
+    .eyebutton {
+       
+        position: absolute;
+        top:30px;
+        right:3px;
+        background-color: transparent;
+
+        margin-left: 0;
+
+        font-size: 20px;
+    }
+
+
+    /* Forgot password */
+
+    .forgot_password_text {
+        padding-left: 0;
+
+        text-align: right;
+        
+        margin-right: 5px;
+
+        font-size: 14px;
+    }
+
+
+    /* Login button */
+
+    .login_btn {
+        width: 100%;
+        height: 45px;
+
+        font-size: 17px;
+    }
+
+
+    /* Register */
+
+    .register_text {
+        margin-top: 25px;
+
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+    .register_text span {
+        font-size: 16px;
+    }
+
+}
+
