@@ -2,5 +2,221 @@
 
 .cont{
 
-    display: flex
+    display: flex;
+    
+    gap:5px;
+}
+
+.rightcont{
+
+    width: 100%;
+    border: 1px solid rgb(231, 225, 225);
+    border-radius: 10px 10px 0px 10px;
+    padding: 10px;
+
+    background-color: rgb(242, 244, 245);
+    box-shadow: -10px 10px 10px rgb(186, 113, 113,0.34);
+}
+
+.rhead{
+
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-around;
+}
+
+.rhead h2{
+
+    font-size: 50px;
+    margin-top: 25px;
+
+}
+
+.rhead button{
+
+    width: 200px;
+    height: 50px;
+    background-color: blue;
+    border: 1px solid rgb(87, 62, 212);
+    box-shadow: 10px 10px 10px rgb(129, 140, 129);
+}
+
+.rhead button:hover{
+    background-color: green;
+    border: 1px solid rgb(76, 106, 29);
+
+    color: black;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid rgb(225, 225, 230);
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    
+
+}
+
+.searchbox{
+
+    position: relative;
+    
+    width: 350px;
+    /* background-color: bisque; */
+    margin-top: 20px;
+    
+}
+
+.searchbox input{
+
+    width: 340px;
+    height: 50px;
+    
+    border: 1px solid rgb(190, 192, 187);
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.searchbox button{
+
+    position: absolute;
+    right: 50px;
+    width: 10px;
+    background-color: transparent;
+    border: none;
+    color: black;
+    top: -30px;
+
+
+}
+
+.month{
+
+    width: 180px;
+    height: 50px;
+    margin-top: 20px;
+    background-color: blue;
+    color: white;
+     
+    border: 1px solid rgb(190, 192, 187);
+    border-radius: 10px;
+    padding-left: 10px;
+ 
+}
+
+
+table{
+
+    margin-top: 50px;
+
+    border: 1px solid black;
+   
+}
+
+
+table th{
+
+    border: 1px solid black;
+   
+}
+
+
+
+
+
+
+@media(max-width:768px){
+
+
+
+    .cont{
+        display: block;
+    }
+
+    .rightcont{
+
+        width: 100%;
+       
+    }
+
+    .rhead h2{
+
+        font-size: 20px;
+    }
+
+    .rhead button{
+
+    width: 100px;
+    height: 30px;
+    font-size: 10px;
+    background-color: blue;
+    border: 1px solid rgb(87, 62, 212);
+    box-shadow: 10px 10px 10px rgb(129, 140, 129);
+}
+
+.searchbox input{
+
+    width: 370px;
+    height: 50px;
+    
+    border: 1px solid rgb(190, 192, 187);
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.searchbox button{
+
+    position: absolute;
+    right: 20px;
+    width: 10px;
+    background-color: transparent;
+    border: none;
+    color: black;
+    top: -25px;
+
+
+}
+
+.search{
+
+    display: block;
+}
+
+
+.month{
+
+    width: 170px;
+    height: 40px;
+    margin-top: 20px;
+    margin-right: 20px;
+    background-color: blue;
+    color: white;
+     
+    border: 1px solid rgb(190, 192, 187);
+    border-radius: 10px;
+    padding-left: 10px;
+ 
+}
+
+table{
+
+    margin-top: 50px;
+
+    border: 1px solid black;
+   
+}
+
+
+table th{
+
+    border: 1px solid black;
+   
+}
+
+
 }

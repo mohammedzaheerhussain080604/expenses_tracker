@@ -107,7 +107,7 @@
     text-decoration: none;
 }
 
-.navicon.active:hover {
+.active:hover {
     background-color: rgb(64, 13, 108);
     color: white;
 }
@@ -182,7 +182,7 @@
 
   
 
-    background-color: rgb(198, 174, 108);
+    background-color: rgb(115, 96, 44);
     padding: 10px;
 
 
@@ -197,10 +197,28 @@
 
   }
 
-  .navicon.active:hover {
-    background-color: rgb(64, 13, 108);
-    color: white;
-}
+.active:hover {
+    flex-direction: column;
+    gap: 5px;
+    margin: 0;
+    padding: 5px;
+
+  
+
+    background-color: rgb(115, 96, 44);
+    padding: 10px;
+
+
+  box-shadow: 5px 0 10px rgb(184, 184, 201);
+
+  
+    border: 1px solid rgb(198, 174, 108);
+    border-radius: 10px;
+    color: rgb(58, 41, 4);
+    text-decoration: none;
+
+
+  }
 
 
 }
