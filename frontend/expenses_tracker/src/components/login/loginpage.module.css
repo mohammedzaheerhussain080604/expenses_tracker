@@ -1,307 +1,441 @@
 body {
-  font-family: "Inter", sans-serif;
-}
-
-
-
-
-.cont{
-
-    background-color: rgb(255, 249, 249);
-   
-    height: 70vh;
-    width: 50%;
-    margin-left: 350px;
-    margin-top: 100px;
-    border: 1px solid rgb(244, 232, 232);
-    box-shadow: 10px 10px 20px 3px rgb(131, 140, 131);
-
-
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    
-}
-
-
-.image_cont{
-
-    background-color: rgb(251, 249, 249);
-}
-
-.image_cont img{
-
-    width: 300px;
-    height: 300px;
-    margin-left: 30px;
-    
-}
-
-.image_text{
-
-   
-    text-align: center;
-    
-
-}
-
-.image_text h3{
-
-    width: 300px;
-    
-    margin-left: 50px;
-    color: 
-    rgb(153, 153, 147);
-}
-
-
-/* ------------ right content ---------- */
-
-.right_content{
-
-    background-color: rgb(254, 255, 255);
-    width: 500px;
-    height: 550px;
-    box-shadow: 10px 10px 20px 3px rgb(212, 215, 212);
-
-    border: 1px solid rgb(232, 226, 226);
-    border-radius: 10px;
-    margin: 30px;
-
-}
-
-
-.right_head{
-
-    padding-left: 30px;
-    padding-top: 30px;
-
-    
-}
-
-.right_head h2{
-
-    font-size: 35px;
-    line-height: 15px;
-}
-
-.right_head h3{
-
-    font-size: 20px;
-    margin-top: 30px;
-    color: rgb(176, 179, 182);
-    line-height: 0.5px;
-   
-}
-
-.input_field{
-
-   
-    margin-top: 60px;
-    cursor: pointer;
-}
-
-.input_field label{
-
-    font-size: 20px;
-    font-family:Arial, Helvetica, sans-serif;
-    padding-bottom: 30px;
-    cursor: pointer;
-}
-
-.input_field input{
-
-    width: 400px;
-    height: 45px;
-    border: 1px solid rgb(231, 226, 226);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgb(210, 219, 210);
-    padding-left: 10px;
-    font-size: 18px;
-    color: rgb(94, 89, 89);
-}
-
-.form_password{
-
-    position: relative;
-}
-
-.eyebutton {
-    position: absolute;
-    top: 3px;
-    right: 25px;
-
-    width: 10px;
-    height: 10px;
-
-    color: black;
-    border: none;
-    background-color: rgb(254, 255, 255);
-
-    font-size: 20px;
-
-    cursor: pointer;
-}
-
-
-.eyebutton:hover {
-    position: absolute;
-    top: 3px;
-    right: 25x;
-    width: 10px;
-    height: 10px;
-    color: black;
-    border: none;
-    background-color: rgb(254, 255, 255);
-    font-size: 20px;
-    cursor: pointer;
-}
-
-
-.forgot_password_text{
-
-    
-    margin-left: 250px;
-    margin-top: 10px;
-    font-size: 15px;
-    color: rgb(111, 111, 115);
-    font-weight: 600;
-}
-
-.forgot_password_text:hover{
-
-    color:rgb(46, 22, 101)
-}
-
-.login_btn{
-
-    width: 400px;
-    height: 45px;
-    background-color: blue;
-    border: 1px solid rgb(108, 60, 222);
-    border-radius: 8px;
-    color: aliceblue;
-    font-weight: 700;
-    font-size: 18px;
-    box-shadow: 0 4px 10px rgb(108, 111, 108);
-    
-    cursor: pointer;
-}
-
- a{
-        text-decoration: none;
-    }
-
-.login_btn:hover{
-
-    background-color: green;
-    height: 45px;
-    font-size: 20px;
-    width: 400px;
-    border: 1px solid rgb(38, 136, 23);
-    color: rgb(255, 255, 255);
-}
-
-.register_text{
-
-    text-align: center;
-    margin-top: 30px;
-    color: rgb(144, 144, 149);
-}
-
-.register_text span{
-
-    color: blue;
-    font-size: 18px;
+    font-family: "Inter", sans-serif;
 }
 
 
 /* =========================
-   MOBILE VIEW
+   MAIN CONTAINER
    ========================= */
+
+.cont {
+    background-color: rgb(255, 249, 249);
+
+    height: 70vh;
+    width: 50%;
+
+    margin-left: 350px;
+    margin-top: 100px;
+
+    border: 1px solid rgb(244, 232, 232);
+
+    box-shadow: 10px 10px 20px 3px rgb(131, 140, 131);
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   IMAGE SECTION
+   ========================= */
+
+.image_cont {
+    background-color: rgb(251, 249, 249);
+}
+
+.image_cont img {
+    width: 300px;
+    height: 300px;
+
+    margin-left: 30px;
+
+    display: block;
+}
+
+.image_text {
+    text-align: center;
+}
+
+.image_text h2 {
+    margin: 10px 0;
+}
+
+.image_text h3 {
+    width: 300px;
+
+    margin-left: 50px;
+
+    color: rgb(153, 153, 147);
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   RIGHT CONTENT
+   ========================= */
+
+.right_content {
+    background-color: rgb(254, 255, 255);
+
+    width: 500px;
+    height: 550px;
+
+    box-shadow: 10px 10px 20px 3px rgb(212, 215, 212);
+
+    border: 1px solid rgb(232, 226, 226);
+
+    border-radius: 10px;
+
+    margin: 30px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   RIGHT HEADING
+   ========================= */
+
+.right_head {
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.right_head h2 {
+    font-size: 35px;
+
+    line-height: 1.2;
+
+    margin: 0;
+}
+
+.right_head h3 {
+    font-size: 20px;
+
+    margin-top: 30px;
+
+    color: rgb(176, 179, 182);
+
+    line-height: 1.2;
+}
+
+
+/* =========================
+   INPUT SECTION
+   ========================= */
+
+.input_field {
+    margin-top: 60px;
+
+    cursor: pointer;
+}
+
+.input_field label {
+    font-size: 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    cursor: pointer;
+}
+
+.input_field input {
+    width: 400px;
+    height: 45px;
+
+    border: 1px solid rgb(231, 226, 226);
+
+    border-radius: 8px;
+
+    box-shadow: 0 4px 10px rgb(210, 219, 210);
+
+    padding-left: 10px;
+
+    font-size: 18px;
+
+    color: rgb(94, 89, 89);
+
+    box-sizing: border-box;
+
+    outline: none;
+}
+
+.input_field input:focus {
+    border-color: rgb(108, 60, 222);
+
+    box-shadow: 0 4px 10px rgba(108, 60, 222, 0.2);
+}
+
+
+/* =========================
+   PASSWORD
+   ========================= */
+
+.form_password {
+    position: relative;
+}
+
+
+/* Eye button */
+
+.eyebutton {
+    position: absolute;
+
+    top: 32px;
+    right: 25px;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    color: black;
+
+    border: none;
+
+    background-color: transparent;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+/* IMPORTANT:
+   No .eyebutton:hover
+   because it was moving the icon.
+*/
+
+
+/* =========================
+   FORGOT PASSWORD
+   ========================= */
+
+.forgot_password_text {
+    width: 400px;
+
+    margin: 10px 0 25px 0;
+
+    text-align: right;
+
+    font-size: 15px;
+
+    color: rgb(111, 111, 115);
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.forgot_password_text:hover {
+    color: rgb(46, 22, 101);
+}
+
+
+/* =========================
+   LOGIN BUTTON
+   ========================= */
+
+.login_btn {
+    width: 400px;
+    height: 45px;
+
+    background-color: blue;
+
+    border: 1px solid rgb(108, 60, 222);
+
+    border-radius: 8px;
+
+    color: aliceblue;
+
+    font-weight: 700;
+
+    font-size: 18px;
+
+    box-shadow: 0 4px 10px rgb(108, 111, 108);
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    transition: background-color 0.2s ease,
+                border-color 0.2s ease;
+}
+
+
+/* Only change color on hover.
+   Do NOT change width/height/font-size here.
+*/
+
+.login_btn:hover {
+    background-color: green;
+
+    border-color: rgb(38, 136, 23);
+
+    color: white;
+}
+
+
+/* =========================
+   LINKS
+   ========================= */
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================
+   REGISTER TEXT
+   ========================= */
+
+.register_text {
+    text-align: center;
+
+    margin-top: 30px;
+
+    color: rgb(144, 144, 149);
+}
+
+.register_text span {
+    color: blue;
+
+    font-size: 18px;
+}
+
+.register_text a {
+    color: blue;
+
+    text-decoration: none;
+}
+
+.register_text a:hover {
+    color: green;
+
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   MOBILE VIEW
+   ===================================================== */
 
 @media (max-width: 768px) {
 
     body {
         margin: 0;
+
         padding: 0;
+
         width: 100%;
     }
 
+
+    /* =========================
+       MAIN CONTAINER
+       ========================= */
+
     .cont {
         width: 100%;
+
         min-height: 100vh;
+
         height: auto;
 
         margin: 0;
+
         padding: 20px;
 
         box-sizing: border-box;
 
         border: none;
+
         box-shadow: none;
+
         border-radius: 0;
 
         display: flex;
+
         flex-direction: column;
 
         justify-content: center;
+
         align-items: center;
     }
 
 
-    /* Hide image on mobile */
+    /* =========================
+       IMAGE
+       ========================= */
 
-    
-.image_cont{
+    .image_cont {
+        width: 100%;
 
-    background-color: rgb(251, 249, 249);
-}
+        background-color: rgb(251, 249, 249);
 
-.image_cont img{
+        text-align: center;
+    }
 
-    width: 200px;
-    height: 200px;
-    margin-left: 55px;
-    
-}
+    .image_cont img {
+        width: 200px;
 
-.image_text{
-  
-    text-align: center;
-    margin-top: -20px;
-    
-}
+        height: 200px;
 
-.image_text h2{
+        margin: 0 auto;
 
-    font-size: 18px;
-}
-
-.image_text h3{
-
-    width: 230px;
-    margin-right: 36px;
-    text-align: center;
-    font-size: 13px;
-    color: 
-    rgb(153, 153, 147);
-}
+        display: block;
+    }
 
 
+    /* =========================
+       IMAGE TEXT
+       ========================= */
 
-    /* Login box */
+    .image_text {
+        text-align: center;
+
+        margin-top: -20px;
+    }
+
+    .image_text h2 {
+        font-size: 18px;
+
+        margin: 10px 0;
+    }
+
+    .image_text h3 {
+        width: 230px;
+
+        margin: 0 auto;
+
+        text-align: center;
+
+        font-size: 13px;
+
+        color: rgb(153, 153, 147);
+
+        line-height: 1.4;
+    }
+
+
+    /* =========================
+       LOGIN BOX
+       ========================= */
 
     .right_content {
         width: 100%;
+
         max-width: 450px;
 
         height: auto;
-        min-height: auto;
+
+        min-height: 0;
 
         margin: 0;
+
         padding: 20px;
 
         box-sizing: border-box;
@@ -312,91 +446,165 @@ body {
     }
 
 
-    /* Heading */
+    /* =========================
+       HEADING
+       ========================= */
 
     .right_head {
         padding: 5px 0 0 0;
+
+        text-align: center;
     }
 
     .right_head h2 {
         font-size: 28px;
-        line-height: 1.2;
-        margin: 0 10px 10px 50px;
-        text-align: center;
-    }
 
-    a{
-        text-decoration: none;
+        line-height: 1.2;
+
+        margin: 0 0 10px 0;
+
+        text-align: center;
     }
 
     .right_head h3 {
         font-size: 16px;
+
         line-height: 1.4;
+
         margin: 0;
+
         text-align: center;
     }
 
 
-    /* Form */
+    /* =========================
+       FORM
+       ========================= */
 
     .input_field {
+        width: 100%;
+
         margin: 40px 0 0 0;
     }
 
 
-    /* Labels */
+    /* =========================
+       LABEL
+       ========================= */
 
     .input_field label {
         font-size: 17px;
+
         margin-bottom: 8px;
     }
 
 
-    /* Inputs */
+    /* =========================
+       INPUT
+       ========================= */
 
     .input_field input {
         width: 100%;
+
         height: 45px;
 
         box-sizing: border-box;
 
         font-size: 16px;
+
+        padding-left: 10px;
+
+        padding-right: 45px;
     }
 
 
-    .form_password{
+    /* =========================
+       PASSWORD EYE
+       ========================= */
 
-        position:relative;
+    .form_password {
+        position: relative;
     }
-    /* Eye button */
 
-   
+    .eyebutton {
+        position: absolute;
+
+        top: 31px;
+
+        right: 8px;
+
+        width: 30px;
+
+        height: 30px;
+
+        margin: 0;
+
+        padding: 0;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        background-color: transparent;
+
+        font-size: 20px;
+    }
 
 
-    /* Forgot password */
+    /* =========================
+       FORGOT PASSWORD
+       ========================= */
 
     .forgot_password_text {
-        padding-left: 0;
+        width: 100%;
+
+        height: auto;
+
+        margin: 10px 0 25px 0;
+
+        padding: 0;
 
         text-align: right;
-        
-        margin-right: 5px;
 
         font-size: 14px;
     }
 
 
-    /* Login button */
+    /* =========================
+       LOGIN BUTTON
+       ========================= */
 
     .login_btn {
         width: 100%;
+
         height: 45px;
 
         font-size: 17px;
     }
 
 
-    /* Register */
+    /* IMPORTANT:
+       Hover does NOT change size.
+    */
+
+    .login_btn:hover {
+        width: 100%;
+
+        height: 45px;
+
+        font-size: 17px;
+
+        background-color: green;
+
+        border-color: rgb(38, 136, 23);
+    }
+
+
+    /* =========================
+       REGISTER
+       ========================= */
 
     .register_text {
         margin-top: 25px;
@@ -412,3 +620,66 @@ body {
 
 }
 
+
+/* =====================================================
+   SMALL MOBILE
+   ===================================================== */
+
+@media (max-width: 400px) {
+
+    .cont {
+        padding: 15px;
+    }
+
+    .image_cont img {
+        width: 170px;
+
+        height: 170px;
+    }
+
+    .image_text {
+        margin-top: -15px;
+    }
+
+    .image_text h2 {
+        font-size: 17px;
+    }
+
+    .image_text h3 {
+        width: 210px;
+
+        font-size: 12px;
+    }
+
+    .right_content {
+        padding: 18px;
+    }
+
+    .right_head h2 {
+        font-size: 25px;
+    }
+
+    .right_head h3 {
+        font-size: 14px;
+    }
+
+    .input_field {
+        margin-top: 30px;
+    }
+
+    .input_field label {
+        font-size: 16px;
+    }
+
+    .input_field input {
+        font-size: 15px;
+    }
+
+    .login_btn {
+        font-size: 16px;
+    }
+
+    .login_btn:hover {
+        font-size: 16px;
+    }
+}

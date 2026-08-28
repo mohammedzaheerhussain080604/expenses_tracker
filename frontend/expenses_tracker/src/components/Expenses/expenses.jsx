@@ -16,6 +16,12 @@ export default function Expenses(){
 
             <div className={styles.rightcont}>
 
+
+{/* --------------- heading ------------- */}
+                <div>
+
+                </div>
+
                 
 
 
