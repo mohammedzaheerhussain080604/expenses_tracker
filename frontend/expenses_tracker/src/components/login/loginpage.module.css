@@ -50,6 +50,7 @@ body {
 .image_text h3{
 
     width: 300px;
+    
     margin-left: 50px;
     color: 
     rgb(153, 153, 147);
@@ -89,6 +90,7 @@ body {
 .right_head h3{
 
     font-size: 20px;
+    margin-top: 30px;
     color: rgb(176, 179, 182);
     line-height: 0.5px;
    
@@ -96,7 +98,7 @@ body {
 
 .input_field{
 
-    margin-left: 30px;
+   
     margin-top: 60px;
     cursor: pointer;
 }
@@ -121,18 +123,48 @@ body {
     color: rgb(94, 89, 89);
 }
 
-.eyebutton{
+.form_password{
 
-    margin-left: -50px;
+    position: relative;
+}
+
+.eyebutton {
+    position: absolute;
+    top: 3px;
+    right: 25px;
+
+    width: 10px;
+    height: 10px;
+
+    color: black;
+    border: none;
+    background-color: rgb(254, 255, 255);
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+.eyebutton:hover {
+    position: absolute;
+    top: 3px;
+    right: 25x;
+    width: 10px;
+    height: 10px;
+    color: black;
     border: none;
     background-color: rgb(254, 255, 255);
     font-size: 20px;
     cursor: pointer;
 }
 
+
 .forgot_password_text{
 
-    padding-left: 300px;
+    
+    margin-left: 250px;
+    margin-top: 10px;
     font-size: 15px;
     color: rgb(111, 111, 115);
     font-weight: 600;
@@ -145,7 +177,7 @@ body {
 
 .login_btn{
 
-    width: 420px;
+    width: 400px;
     height: 45px;
     background-color: blue;
     border: 1px solid rgb(108, 60, 222);
@@ -158,9 +190,16 @@ body {
     cursor: pointer;
 }
 
+ a{
+        text-decoration: none;
+    }
+
 .login_btn:hover{
 
     background-color: green;
+    height: 45px;
+    font-size: 20px;
+    width: 400px;
     border: 1px solid rgb(38, 136, 23);
     color: rgb(255, 255, 255);
 }
@@ -282,8 +321,12 @@ body {
     .right_head h2 {
         font-size: 28px;
         line-height: 1.2;
-        margin: 0 0 10px 0;
+        margin: 0 10px 10px 50px;
         text-align: center;
+    }
+
+    a{
+        text-decoration: none;
     }
 
     .right_head h3 {
@@ -327,17 +370,7 @@ body {
     }
     /* Eye button */
 
-    .eyebutton {
-       
-        position: absolute;
-        top:30px;
-        right:3px;
-        background-color: transparent;
-
-        margin-left: 0;
-
-        font-size: 20px;
-    }
+   
 
 
     /* Forgot password */

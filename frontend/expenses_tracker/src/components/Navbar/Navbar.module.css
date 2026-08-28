@@ -6,7 +6,7 @@
 
 .cont{
 
-    width: 260px;
+    width: 360px;
     height: 100vh;
     border: 1px solid rgb(231, 224, 224);
     box-shadow: 0 10px 10px rgb(131, 117, 117);
@@ -107,6 +107,11 @@
     text-decoration: none;
 }
 
+.navicon.active:hover {
+    background-color: rgb(64, 13, 108);
+    color: white;
+}
+
 @media (max-width: 768px) {
 
   .cont {
@@ -158,10 +163,7 @@
     font-size: 10px;
   }
 
-  .navicon:hover {
-    margin: 0;
-    padding: 5px;
-  }
+  
 
  
 .logout{
@@ -194,5 +196,12 @@
 
 
   }
+
+  .navicon.active:hover {
+    background-color: rgb(64, 13, 108);
+    color: white;
+}
+
+
 }
 

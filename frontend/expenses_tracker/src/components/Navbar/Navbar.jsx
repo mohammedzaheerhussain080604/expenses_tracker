@@ -8,6 +8,7 @@ import {
   Tags,
   User,
   LogOut,
+  Receipt
 } from "lucide-react";
 
 import { NavLink } from "react-router-dom";
@@ -20,16 +21,18 @@ export default function Navbar() {
       icon: LayoutDashboard,
       path: "/dashboard",
     },
+
+    {
+      name: "Expenses",
+      icon: Receipt,
+      path: "/expenses",
+    },
     {
       name: "Add Expenses",
       icon: Plus,
       path: "/add-expenses",
     },
-    {
-      name: "Edit Expenses",
-      icon: Pencil,
-      path: "/edit-expenses",
-    },
+   
     {
       name: "Categories",
       icon: Tags,
