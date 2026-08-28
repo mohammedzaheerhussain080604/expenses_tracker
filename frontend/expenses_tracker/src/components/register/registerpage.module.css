@@ -1,7 +1,5 @@
 body {
     font-family: "Inter", sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
 
@@ -12,11 +10,11 @@ body {
 .cont {
     background-color: rgb(255, 249, 249);
 
-    height: 90vh;
+    height: 85vh;
     width: 50%;
 
     margin-left: 350px;
-    margin-top: 50px;
+    margin-top: 100px;
 
     border: 1px solid rgb(244, 232, 232);
 
@@ -33,7 +31,7 @@ body {
 
 
 /* =========================
-   LEFT IMAGE SECTION
+   IMAGE SECTION
    ========================= */
 
 .image_cont {
@@ -55,8 +53,6 @@ body {
 
 .image_text h2 {
     margin: 10px 0;
-
-    font-size: 25px;
 }
 
 .image_text h3 {
@@ -67,8 +63,6 @@ body {
     color: rgb(153, 153, 147);
 
     line-height: 1.4;
-
-    font-size: 16px;
 }
 
 
@@ -95,7 +89,7 @@ body {
 
 
 /* =========================
-   HEADING
+   RIGHT HEADING
    ========================= */
 
 .right_head {
@@ -114,33 +108,30 @@ body {
 .right_head h3 {
     font-size: 20px;
 
-    margin-top: 20px;
+    margin-top: 30px;
 
     color: rgb(176, 179, 182);
 
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
 
 /* =========================
-   FORM
+   INPUT SECTION
    ========================= */
 
 .input_field {
-    margin-top: 40px;
-
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-top: 60px;
 
     cursor: pointer;
 }
 
 .input_field label {
-    display: inline-block;
-
-    font-size: 19px;
+    font-size: 20px;
 
     font-family: Arial, Helvetica, sans-serif;
+
+    display: inline-block;
 
     margin-bottom: 8px;
 
@@ -148,8 +139,7 @@ body {
 }
 
 .input_field input {
-    width: 100%;
-
+    width: 400px;
     height: 45px;
 
     border: 1px solid rgb(231, 226, 226);
@@ -158,9 +148,9 @@ body {
 
     box-shadow: 0 4px 10px rgb(210, 219, 210);
 
-    padding: 0 10px;
+    padding-left: 10px;
 
-    font-size: 17px;
+    font-size: 18px;
 
     color: rgb(94, 89, 89);
 
@@ -184,17 +174,45 @@ body {
     position: relative;
 }
 
+
+/* Eye button */
+
 .eyebutton {
     position: absolute;
 
-    top: 31px;
-    right: 8px;
+    top: 10px;
+    right: 25px;
 
     width: 30px;
     height: 30px;
 
     display: flex;
+    align-items: center;
+    justify-content: center;
 
+    padding: 0;
+
+    color: black;
+
+    border: none;
+
+    background-color: transparent;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.eyebutton:hover {
+    position: absolute;
+
+    top: 10px;
+    right: 25px;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
     align-items: center;
     justify-content: center;
 
@@ -212,13 +230,39 @@ body {
 }
 
 
+
+
 /* =========================
-   REGISTER BUTTON
+   FORGOT PASSWORD
    ========================= */
 
-.register_btn {
-    width: 100%;
+.forgot_password_text {
+    width: 400px;
 
+    margin: 10px 0 25px 0;
+
+    text-align: right;
+
+    font-size: 15px;
+
+    color: rgb(111, 111, 115);
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.forgot_password_text:hover {
+    color: rgb(46, 22, 101);
+}
+
+
+/* =========================
+   LOGIN BUTTON
+   ========================= */
+
+.login_btn {
+    width: 400px;
     height: 45px;
 
     background-color: blue;
@@ -243,72 +287,71 @@ body {
                 border-color 0.2s ease;
 }
 
-.register_btn:hover {
-    background-color: green;
 
-    border-color: rgb(38, 136, 23);
+.login_btn:hover {
+    width: 400px;
+    height: 45px;
 
-    color: white;
-}
+    background-color: rgb(120, 115, 21);
 
+border: 1px solid rgb(122, 147, 21);
+    border-radius: 8px;
 
-/* =========================
-   LOGIN LINK TEXT
-   ========================= */
+    color: aliceblue;
 
-.login_text {
-    text-align: center;
-
-    margin-top: 25px;
-
-    color: rgb(144, 144, 149);
-
-    font-size: 15px;
-}
-
-.login_text span {
-    color: blue;
+    font-weight: 700;
 
     font-size: 18px;
 
-    margin-left: 5px;
+    box-shadow: 0 4px 10px rgb(108, 111, 108);
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    transition: background-color 0.2s ease,
+                border-color 0.2s ease;
 }
 
-.login_text a {
-    color: blue;
 
-    text-decoration: none;
-}
 
-.login_text a:hover {
-    color: green;
+/* =========================
+   LINKS
+   ========================= */
 
+a {
     text-decoration: none;
 }
 
 
 /* =========================
-   ERROR / SUCCESS
+   REGISTER TEXT
    ========================= */
 
-.error_message {
+.register_text {
     text-align: center;
 
-    color: red;
+    margin-top: 30px;
 
-    font-size: 14px;
-
-    margin: 10px 0;
+    color: rgb(144, 144, 149);
 }
 
-.success_message {
-    text-align: center;
+.register_text span {
+    color: blue;
 
+    font-size: 18px;
+}
+
+.register_text a {
+    color: blue;
+
+    text-decoration: none;
+}
+
+.register_text a:hover {
     color: green;
 
-    font-size: 14px;
-
-    margin: 10px 0;
+    text-decoration: none;
 }
 
 
@@ -320,6 +363,7 @@ body {
 
     body {
         margin: 0;
+
         padding: 0;
 
         width: 100%;
@@ -372,9 +416,9 @@ body {
     }
 
     .image_cont img {
-        width: 180px;
+        width: 200px;
 
-        height: 180px;
+        height: 200px;
 
         margin: 0 auto;
 
@@ -389,13 +433,13 @@ body {
     .image_text {
         text-align: center;
 
-        margin-top: -10px;
+        margin-top: -20px;
     }
 
     .image_text h2 {
         font-size: 18px;
 
-        margin: 8px 0;
+        margin: 10px 0;
     }
 
     .image_text h3 {
@@ -414,7 +458,7 @@ body {
 
 
     /* =========================
-       REGISTER BOX
+       LOGIN BOX
        ========================= */
 
     .right_content {
@@ -423,6 +467,8 @@ body {
         max-width: 450px;
 
         height: auto;
+
+        min-height: 0;
 
         margin: 0;
 
@@ -447,7 +493,7 @@ body {
     }
 
     .right_head h2 {
-        font-size: 27px;
+        font-size: 28px;
 
         line-height: 1.2;
 
@@ -457,7 +503,7 @@ body {
     }
 
     .right_head h3 {
-        font-size: 15px;
+        font-size: 16px;
 
         line-height: 1.4;
 
@@ -474,7 +520,7 @@ body {
     .input_field {
         width: 100%;
 
-        margin: 30px 0 0 0;
+        margin: 40px 0 0 0;
     }
 
 
@@ -483,9 +529,9 @@ body {
        ========================= */
 
     .input_field label {
-        font-size: 16px;
+        font-size: 17px;
 
-        margin-bottom: 7px;
+        margin-bottom: 8px;
     }
 
 
@@ -519,7 +565,7 @@ body {
     .eyebutton {
         position: absolute;
 
-        top: 5px;
+        top: 31px;
 
         right: 8px;
 
@@ -527,25 +573,73 @@ body {
 
         height: 30px;
 
+        margin: 0;
+
+        padding: 0;
+
         display: flex;
 
         align-items: center;
 
         justify-content: center;
 
+        background-color: transparent;
+
+        font-size: 20px;
+    }
+
+    .eyebutton:hover {
+        position: absolute;
+
+        top: 31px;
+
+        right: 8px;
+
+        width: 30px;
+
+        height: 30px;
+
+        margin: 0;
+
         padding: 0;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
 
         background-color: transparent;
 
         font-size: 20px;
     }
 
+    
 
     /* =========================
-       REGISTER BUTTON
+       FORGOT PASSWORD
        ========================= */
 
-    .register_btn {
+    .forgot_password_text {
+        width: 100%;
+
+        height: auto;
+
+        margin: 10px 0 25px 0;
+
+        padding: 0;
+
+        text-align: right;
+
+        font-size: 14px;
+    }
+
+
+    /* =========================
+       LOGIN BUTTON
+       ========================= */
+
+    .login_btn {
         width: 100%;
 
         height: 45px;
@@ -553,7 +647,12 @@ body {
         font-size: 17px;
     }
 
-    .register_btn:hover {
+
+    /* IMPORTANT:
+       Hover does NOT change size.
+    */
+
+    .login_btn:hover {
         width: 100%;
 
         height: 45px;
@@ -567,20 +666,21 @@ body {
 
 
     /* =========================
-       LOGIN TEXT
+       REGISTER
        ========================= */
 
-    .login_text {
-        margin-top: 20px;
+    .register_text {
+        margin-top: 25px;
 
         font-size: 14px;
 
         line-height: 1.5;
     }
 
-    .login_text span {
+    .register_text span {
         font-size: 16px;
     }
+
 }
 
 
@@ -595,9 +695,13 @@ body {
     }
 
     .image_cont img {
-        width: 150px;
+        width: 170px;
 
-        height: 150px;
+        height: 170px;
+    }
+
+    .image_text {
+        margin-top: -15px;
     }
 
     .image_text h2 {
@@ -611,11 +715,11 @@ body {
     }
 
     .right_content {
-        padding: 17px;
+        padding: 18px;
     }
 
     .right_head h2 {
-        font-size: 24px;
+        font-size: 25px;
     }
 
     .right_head h3 {
@@ -623,22 +727,22 @@ body {
     }
 
     .input_field {
-        margin-top: 25px;
+        margin-top: 30px;
     }
 
     .input_field label {
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .input_field input {
         font-size: 15px;
     }
 
-    .register_btn {
+    .login_btn {
         font-size: 16px;
     }
 
-    .register_btn:hover {
+    .login_btn:hover {
         font-size: 16px;
     }
 }
